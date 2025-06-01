@@ -1,0 +1,15 @@
+Here is Arduino nano code for my project:
+#include<SoftwareSerial.h> SoftwareSerial B(6,5);
+void setup() {
+// put your setup code here, to run once: B.begin(9600);
+Serial.begin(9600); pinMode(A2,INPUT); pinMode(10,OUTPUT); //buz pinMode(2,OUTPUT); //led pinMode(3,OUTPUT); //led
+}
+void loop() {
+// put your main code here, to run repeatedly: int x=analogRead(A2);
+Serial.println(x); if(x<=12){ digitalWrite(3,HIGH); digitalWrite(2,LOW); digitalWrite(10,LOW);
+B.println("posture is correct");
+}
+else{ digitalWrite(2,HIGH); digitalWrite(3,LOW); digitalWrite(10,HIGH);
+B.println(“posture is not correct");
+}
+}
